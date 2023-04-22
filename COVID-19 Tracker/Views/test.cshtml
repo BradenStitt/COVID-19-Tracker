@@ -1,0 +1,48 @@
+﻿
+@*
+<div class="container">
+    <div class="row pt-4 pb-3">
+        <div class="col-6">
+            <h2 class="text-primary">
+                Country Data
+            </h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Covid" asp-action="Countries" class="btn btn-dark">
+                <i class="bi bi-plus-circle"></i> See Country Data
+            </a>
+        </div>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Country</th>
+            <th>Cases</th>
+            <th>Deaths</th>
+            <th>Recovered</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var data in Model)
+        {
+            <tr>
+                <td>@data.Country</td>
+                <td>@data.Cases</td>
+                <td>@data.Deaths</td>
+                <td>@data.Recovered</td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Covid" asp-action="Index" class="btn btn-primary mx-2">
+                            <i class="bi bi-pencil-square"></i> Edit
+                        </a>
+                        <a asp-controller="Covid" asp-action="Index" class="btn btn-danger mx-2">
+                            <i class="bi bi-trash"></i> Delete
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>*@

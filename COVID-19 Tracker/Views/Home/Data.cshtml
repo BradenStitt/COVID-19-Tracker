@@ -1,0 +1,35 @@
+﻿@model List<CovidDataModel>
+
+<div id="districtsTable">
+        <div class="card border-left-primary shadow mb-4">
+            <div class="card-body p-0">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Confirmed Cases</th>
+                            <th>Deaths</th>
+                            <th>Recovered</th>
+                            <th>NewConfirmed</th>
+                            <th>NewDeaths</th>
+                            <th>NewRecovered</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    @foreach (var data in Model)
+                    {
+                        <tr>
+                            <td>@data.Country</td>
+                            <td>@data.TotalConfirmed</td>
+                            <td>@data.TotalDeaths</td>
+                            <td>@data.TotalRecovered</td>
+                            <td>@data.NewConfirmed></td>
+                            <td>@data.NewDeaths></td>
+                            <td>@data.NewRecovered></td>
+                        </tr>
+                    }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

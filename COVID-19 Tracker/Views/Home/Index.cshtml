@@ -1,8 +1,228 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model List<CovidDataModel>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+    .meta-badge {
+        background: red;
+        border-radius: 5px;
+        color: white;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding: 6px;
+        width: fit-content;
+    }
+</style>
+<div style="display: flex;">
+    <img src="~/img/virus.png" style="height: 35px; padding-right: 10px;" />
+    <h1 class="h2 mb-2 text-gray-800">COVID-19 Tracker</h1>
 </div>
+
+<small>Built with ASP.NET Core 3.1.32 , Bootstrap and JS. Real-time Curated Data from api.covid19api.com</small>
+<div class="meta-badge" id="dateLastUpdatedOn" style="background: #1cc88a !important; color: white !important">
+    Data Last Updated on
+    @foreach (var data in Model)
+    {
+        @if (data.Country == "United States of America")
+        {
+            <tr>
+                <td>@data.TodaysDate</td>
+            </tr>
+        }
+    }
+</div>
+
+<p></p>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800" id="countryStateLabel">United States of America</h1>
+</div>
+<div class="row">
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Confirmed Cases</div>
+                        <div class="meta-badge" style="background: #4e73df; display: flex;">
+                            <span>+ </span>
+                            <div>
+                                @foreach (var data in Model)
+                                {
+                                    @if (data.Country == "United States of America")
+                                    {
+                                        <tr>
+                                            <td>@data.NewConfirmed: New Cases</td>
+                                        </tr>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="h3 mb-0 card-text">
+                            @foreach (var data in Model)
+                            {
+                                @if (data.Country == "United States of America")
+                                {
+                                    <tr>
+                                        <td>Total: @data.TotalConfirmed</td>
+                                    </tr>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Tested Cases</div>
+                        <div class="meta-badge" style="background: #1cc88a !important">As of 3/10/2023</div>
+                        <div class="h3 mb-0 font-weight-bold text-gray-800"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Earnings (Monthly) Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-info shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Recoveries</div>
+                        <div class="meta-badge" style="background: #36b9cc !important; display: flex;">
+                            <span>+ </span>
+                            <div>
+                                @foreach (var data in Model)
+                                {
+                                    @if (data.Country == "United States of America")
+                                    {
+                                        <tr>
+                                            <td>@data.NewRecovered: New Recoveries</td>
+                                        </tr>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="h3 mb-0 card-text">
+                            @foreach (var data in Model)
+                            {
+                                @if (data.Country == "United States of America")
+                                {
+                                    <tr>
+                                        <td>Total: @data.TotalRecovered</td>
+                                    </tr>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pending Requests Card Example -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-danger shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Deceased</div>
+                        <div class="meta-badge" style="background: #e74a3b !important; display: flex;">
+                            <span>+ </span>
+                            <div>
+                                @foreach (var data in Model)
+                                {
+                                    @if (data.Country == "United States of America")
+                                    {
+                                        <tr>
+                                            <td>@data.NewDeaths: New Deaths</td>
+                                        </tr>
+                                    }
+                                }
+                            </div>
+                        </div>
+                        <div class="h3 mb-0 card-text">
+                            @foreach (var data in Model)
+                            {
+                                @if (data.Country == "United States of America")
+                                {
+                                    <tr>
+                                        <td>Total: @data.TotalDeaths</td>
+                                    </tr>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="col-xl-12">
+
+        <!-- Area Chart -->
+        <div class="card border-left-primary shadow mb-4">
+            <div class="card-body">
+                <div class="chart-area">
+                    <canvas id="myChart"></canvas>
+                </div>
+                <hr>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Total Cases', 'Total Recoveries', 'Total Deaths'],
+                datasets: [{
+                    label: 'COVID-19 Data',
+                    data: [103802702, 102678866, 1123836], // replace with your own data
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(75, 192, 192, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+    </script>
+
+
+}
