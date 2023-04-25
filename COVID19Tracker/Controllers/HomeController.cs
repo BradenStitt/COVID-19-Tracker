@@ -1,10 +1,10 @@
-﻿using COVID_19_Tracker.Models;
+﻿using COVID19Tracker.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Diagnostics;
 
 
-namespace COVID_19_Tracker.Controllers
+namespace COVID19Tracker.Controllers
 {
     public class HomeController : Controller
     {

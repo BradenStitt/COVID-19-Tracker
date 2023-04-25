@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 
-namespace COVID_19_Tracker
+namespace COVID19Tracker
 {
     public class Startup
     {

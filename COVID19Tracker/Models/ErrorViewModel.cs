@@ -1,4 +1,4 @@
-﻿namespace COVID_19_Tracker.Models
+﻿namespace COVID19Tracker.Models
 {
     public class ErrorViewModel
     {
