@@ -1,7 +1,7 @@
 # COVID-19 Tracker
 This is a web application that tracks COVID-19 cases worldwide. The application displays the United States total number of confirmed cases, deaths, and recoveries, as well as the daily changes in these numbers.
 
-You can access the hosted application [here](https://covidtracker.herokuapp.com/).
+The original Heroku demo has been retired.
 
 ## Technologies Used
 - C#
